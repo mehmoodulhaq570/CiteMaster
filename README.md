@@ -34,7 +34,7 @@ CiteMaster provides an interactive interface.
 ### ▶️ Running the Program
 
 ```python
-from auto_refgen import main
+from cite_master import main
 
 main()
 ```
