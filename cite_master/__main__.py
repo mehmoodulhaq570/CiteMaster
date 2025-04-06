@@ -6,17 +6,30 @@ def main():
     user_input = input("Enter a paper title or provide a file path (txt/csv): ").strip()
     citation_format = input("Enter citation format (apa, mla, ieee): ").strip().lower()
     include_bibtex = input("Do you want the BibTeX citation as well? (yes/no): ").strip().lower()
-    
+
     if user_input.endswith(".txt") or user_input.endswith(".csv"):
+        save_bibtex_to_file = "no"
+        if include_bibtex == "yes":
+            save_bibtex_to_file = input("Do you want to save all BibTeX entries to a file (bibtex_output.txt)? (yes/no): ").strip().lower()
+
         results = process_multiple_titles(user_input, citation_format, include_bibtex)
+        
+        all_bibtex_entries = []
         for title, data in results.items():
             print(f"\nTitle: {title}\nFormatted Citation ({citation_format.upper()}):\n{data['citation']}\n")
-            if include_bibtex == "yes":
+            if include_bibtex == "yes" and data['bibtex']:
                 print(f"BibTeX:\n{data['bibtex']}\n")
+                all_bibtex_entries.append(data['bibtex'])
+
+        if include_bibtex == "yes" and save_bibtex_to_file == "yes" and all_bibtex_entries:
+            with open("bibtex_output.txt", "w", encoding="utf-8") as f:
+                f.write("\n\n".join(all_bibtex_entries))
+            print("\n✅ BibTeX entries saved to bibtex_output.txt")
+
     else:
         formatted_citation, bibtex = process_single_title(user_input, citation_format, include_bibtex)
         print(f"\nFormatted Citation ({citation_format.upper()}):\n{formatted_citation}\n")
-        if include_bibtex == "yes":
+        if include_bibtex == "yes" and bibtex:
             print(f"BibTeX:\n{bibtex}\n")
 
 def process_single_title(title, citation_format="apa", include_bibtex="no"):

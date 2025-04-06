@@ -38,7 +38,7 @@ def process_file(file_path):
     for title in titles:
         doi = get_doi_from_title(title)
         dois[title] = doi
-        print(f"Title: {title}\nDOI: {doi}\n")
+        print(f"\nTitle: {title}\nDOI: {doi}\n")
     
     return dois
 
