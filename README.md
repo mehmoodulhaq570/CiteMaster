@@ -132,4 +132,4 @@ Feel free to open issues or submit pull requests. Suggestions and improvements a
 
 ---
 
-**Made with ❤️ by [Mehmood Ul Haq]**
+**Made ❤️ by [Mehmood Ul Haq]**
