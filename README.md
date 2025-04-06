@@ -1,4 +1,4 @@
-# CiteMaster 📚✨
+# CiteMaster ✨
 
 **CiteMaster** is a smart Python package that helps you automatically generate formatted citations from research paper titles or files of titles. No more manual DOI searching or formatting—CiteMaster does it all for you!
 
@@ -27,11 +27,11 @@ pip install requirements.txt
 
 ---
 
-## 🚀 How to Use
+## How to Use
 
 CiteMaster provides an interactive interface.
 
-### ▶️ Running the Program
+### Running the Program
 
 ```python
 from auto_refgen import main
@@ -46,7 +46,7 @@ You'll be prompted to input:
 
 ---
 
-### 📌 Example 1: Single Paper Title
+### Example 1: Single Paper Title
 
 **Input:**
 
@@ -77,7 +77,7 @@ Smith, J., & Johnson, A. (2020). Deep Learning for Solar Energy Forecasting: A R
 
 ---
 
-### 📄 Example 2: File of Titles
+### Example 2: File of Titles
 
 **Input:**
 
@@ -90,7 +90,7 @@ Each title will be processed and a formatted citation printed along with its Bib
 
 ---
 
-## 📁 Supported Input Formats
+## Supported Input Formats
 
 - **.txt file**: One paper title per line  
 - **.csv file**: First column should contain the titles
@@ -104,7 +104,7 @@ Machine Learning in Climate Forecasting
 
 ---
 
-## ❌ Uninstalling
+## Uninstalling
 
 ```bash
 pip uninstall citemaster
@@ -124,7 +124,7 @@ Feel free to open issues or submit pull requests. Suggestions and improvements a
 
 ---
 
-## 📚 Acknowledgments
+## Acknowledgments
 
 - [CrossRef API](https://www.crossref.org/)
 - [BibTeX Format](https://www.bibtex.org/)
@@ -132,4 +132,4 @@ Feel free to open issues or submit pull requests. Suggestions and improvements a
 
 ---
 
-**Made with ❤️ by [Mehmood Ul Haq]**
+**Made ❤️ by [Mehmood Ul Haq]**
