@@ -30,7 +30,7 @@ def main():
 
         all_bibtex_entries = []
         for title, data in results.items():
-            print(f"\nTitle: {title}\n📚 Citation ({citation_format.upper()}):\n{data['citation']}\n")
+            print(f"\nTitle: {title}\n Citation ({citation_format.upper()}):\n{data['citation']}\n")
             if include_bibtex == "yes" and data['bibtex']:
                 print(f"BibTeX:\n{data['bibtex']}\n")
                 all_bibtex_entries.append(data['bibtex'])
