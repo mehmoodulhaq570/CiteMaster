@@ -4,19 +4,33 @@ from .formatter import format_citation
 
 def main():
     user_input = input("Enter a paper title or provide a file path (txt/csv): ").strip()
+    if not user_input:
+        print("\n⚠️ No input provided. Please enter a paper title or file path.")
+        return
+
     citation_format = input("Enter citation format (apa, mla, ieee): ").strip().lower()
+    if citation_format not in ["apa", "mla", "ieee"]:
+        print("\n⚠️ Invalid citation format. Please choose from: apa, mla, ieee.")
+        return
+
     include_bibtex = input("Do you want the BibTeX citation as well? (yes/no): ").strip().lower()
+    if include_bibtex not in ["yes", "no"]:
+        print("\n⚠️ Please enter 'yes' or 'no' for the BibTeX option.")
+        return
 
     if user_input.endswith(".txt") or user_input.endswith(".csv"):
         save_bibtex_to_file = "no"
         if include_bibtex == "yes":
             save_bibtex_to_file = input("Do you want to save all BibTeX entries to a file (bibtex_output.txt)? (yes/no): ").strip().lower()
+            if save_bibtex_to_file not in ["yes", "no"]:
+                print("\n⚠️ Please enter 'yes' or 'no' to save BibTeX entries.")
+                return
 
         results = process_multiple_titles(user_input, citation_format, include_bibtex)
-        
+
         all_bibtex_entries = []
         for title, data in results.items():
-            print(f"\nTitle: {title}\nFormatted Citation ({citation_format.upper()}):\n{data['citation']}\n")
+            print(f"\nTitle: {title}\n📚 Citation ({citation_format.upper()}):\n{data['citation']}\n")
             if include_bibtex == "yes" and data['bibtex']:
                 print(f"BibTeX:\n{data['bibtex']}\n")
                 all_bibtex_entries.append(data['bibtex'])
@@ -28,7 +42,7 @@ def main():
 
     else:
         formatted_citation, bibtex = process_single_title(user_input, citation_format, include_bibtex)
-        print(f"\nFormatted Citation ({citation_format.upper()}):\n{formatted_citation}\n")
+        print(f"\nCitation ({citation_format.upper()}):\n{formatted_citation}\n")
         if include_bibtex == "yes" and bibtex:
             print(f"BibTeX:\n{bibtex}\n")
 
