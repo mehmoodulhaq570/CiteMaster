@@ -1,0 +1,2 @@
+[console_scripts]
+cite-master = cite_master.main:main
