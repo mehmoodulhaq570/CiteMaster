@@ -7,13 +7,3 @@ Evaluating Deduplication Techniques for Economic Research Paper Titles
 Automating Bibliometric Analysis with Sentence Transformers and RAG
 
 Enhancing Scientific Figure Captioning Through Cross-modal Learning
-
-Monetary Tightening and US Bank Fragility in 2023
-
-Navigating the Jagged Technological Frontier
-
-Return-to-Office Mandates
-
-Counterproductive Sustainable Investing
-
-The Pace of Economics Publishing
