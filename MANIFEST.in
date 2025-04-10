@@ -1,0 +1,10 @@
+include README.md
+include LICENSE
+include requirements.txt
+include setup.py
+
+recursive-include cite_master *
+recursive-include refgen *
+recursive-include outputs *
+
+global-exclude *.pyc __pycache__/
