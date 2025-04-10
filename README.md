@@ -23,6 +23,12 @@ cd CiteMaster
 pip install requirements.txt
 ```
 
+OR you can use the:
+
+```bash
+pip install cite_master
+```
+
 > **Note:** Make sure you’re using Python 3.7 or higher.
 
 ---
