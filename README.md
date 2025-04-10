@@ -138,4 +138,6 @@ Feel free to open issues or submit pull requests. Suggestions and improvements a
 
 ---
 
+If you have any suggestion or want to contribute to the project you can reach me out at <mehmooulhaq1040@gmail.com>
+
 **Made ❤️ by [Mehmood Ul Haq]**
