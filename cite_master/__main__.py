@@ -12,7 +12,7 @@ logging.basicConfig(filename="errors.log", level=logging.ERROR, format='%(asctim
 os.makedirs("outputs", exist_ok=True)
 
 def main():
-    print("📚 Welcome to CiteMaster: Paper Citation Formatter!\n")
+    print("\n *************📚 Welcome to CiteMaster: Paper Citation Formatter! *************\n")
     user_input = input("Enter a paper title or provide a file path (txt/csv): ").strip()
 
     citation_format = input("Enter citation format (apa, mla, ieee): ").strip().lower()
@@ -74,6 +74,8 @@ def main():
             with open(bibtex_filename, "w", encoding="utf-8") as f:
                 f.write("\n\n".join(all_bibtex_entries))
             print(f"✅ BibTeX entries saved to {bibtex_filename}")
+        
+        print("\n ---------------Goodbye!-----------------")
 
     else:
         formatted_citation, bibtex = process_single_title(user_input, citation_format, include_bibtex)
@@ -84,6 +86,8 @@ def main():
                 with open("outputs/bibtex_output.txt", "w", encoding="utf-8") as f:
                     f.write(bibtex)
                 print("✅ BibTeX saved to outputs/bibtex_output.txt")
+        
+        print("\n ---------------Goodbye!-----------------")
 
 
 def process_single_title(title, citation_format="apa", include_bibtex="no"):

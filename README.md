@@ -1,19 +1,22 @@
-# CiteMaster ✨
+# CiteMaster
 
 **CiteMaster** is a smart Python package that helps you automatically generate formatted citations from research paper titles or files of titles. No more manual DOI searching or formatting—CiteMaster does it all for you!
 
 ---
 
-## 🔥 Features
+## Features
 
-- 🔍 Extracts DOI from paper titles using the CrossRef API
-- 🧠 Fetches corresponding BibTeX data
-- 📝 Formats citations in **APA**, **MLA**, or **IEEE**
-- 📂 Supports batch citation generation from `.txt` or `.csv` files
+- Extracts DOI from paper titles using the CrossRef API
+- Fetches corresponding BibTeX data
+- Formats citations in **APA**, **MLA**, or **IEEE**
+- Supports batch citation generation from `.txt` or `.csv` files
+- Saves formatted citations and BibTeX entries to text files (`citations_output.txt` and `bibtex_output.txt`).
+- Progress tracking for batch processing of large lists of papers.
+- Error handling with detailed logs stored in `errors.log`.
 
 ---
 
-## 📦 Installation
+## Installation
 
 Clone and install CiteMaster locally:
 
@@ -33,11 +36,11 @@ pip install cite_master
 
 ---
 
-## 🚀 How to Use
+## How to Use
 
 CiteMaster provides an interactive interface.
 
-### ▶️ Running the Program
+### Running the Program
 
 ```python
 from cite_master import main
@@ -49,16 +52,21 @@ You'll be prompted to input:
 
 - A paper title or a file path (`.txt` or `.csv`)
 - A citation format: `apa`, `mla`, or `ieee`
+- Whether to include **BibTeX** citations along with formatted ones.
+- Whether to save the formatted citations and/or BibTeX entries to output files.
 
 ---
 
-### 📌 Example 1: Single Paper Title
+### Example 1: Single Paper Title
 
 **Input:**
 
 ```
 Enter a paper title or provide a file path (txt/csv): Deep Learning for Solar Energy Forecasting: A Review
 Enter citation format (apa, mla, ieee): apa
+Do you want the BibTeX citation as well? (yes/no): yes
+Do you want to save formatted citations to outputs/citations_output.txt? (yes/no): yes
+Do you want to save BibTeX entries to outputs/bibtex_output.txt? (yes/no): yes
 ```
 
 **Output:**
@@ -81,22 +89,26 @@ Formatted Citation (APA):
 Smith, J., & Johnson, A. (2020). Deep Learning for Solar Energy Forecasting: A Review. *Renewable and Sustainable Energy Reviews*, 132, 109984. https://doi.org/10.1016/j.rser.2020.109984
 ```
 
+The formatted citation and BibTeX entry will be saved to `outputs/citations_output.txt` and `outputs/bibtex_output.txt`.
+
 ---
 
-### 📄 Example 2: File of Titles
+### Example 2: File of Titles
 
 **Input:**
 
 ```
-Enter a paper title or provide a file path (txt/csv): paper_titles.txt
-Enter citation format (apa, mla, ieee): ieee
-```
+Enter a paper title or provide a file path (txt/csv): C:\path\to\your\file\paper_titles.txt
+Enter citation format (apa, mla, ieee): mla
+Do you want the BibTeX citation as well? (yes/no): no
+Do you want to save formatted citations to outputs/citations_output.txt? (yes/no): yes
 
-Each title will be processed and a formatted citation printed along with its BibTeX.
+```
+In this case, BibTeX entries will not be fetched, and the formatted citations will be saved to `outputs/citations_output.txt`.
 
 ---
 
-## 📁 Supported Input Formats
+## Supported Input Formats
 
 - **.txt file**: One paper title per line  
 - **.csv file**: First column should contain the titles
@@ -110,7 +122,15 @@ Machine Learning in Climate Forecasting
 
 ---
 
-## ❌ Uninstalling
+## Output Files
+
+- **Formatted Citations**: All formatted citations will be saved to `outputs/citations_output.txt`.
+- **BibTeX Entries**: BibTeX entries will be saved to `outputs/bibtex_output.txt` if requested.
+- **Error Logs**: Any errors during processing will be logged in `errors.log`.
+
+---
+
+## Uninstalling
 
 ```bash
 pip uninstall citemaster
@@ -118,19 +138,19 @@ pip uninstall citemaster
 
 ---
 
-## 📝 License
+## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Feel free to open issues or submit pull requests. Suggestions and improvements are welcome!
 
 ---
 
-## 📚 Acknowledgments
+## Acknowledgments
 
 - [CrossRef API](https://www.crossref.org/)
 - [BibTeX Format](https://www.bibtex.org/)
@@ -138,6 +158,7 @@ Feel free to open issues or submit pull requests. Suggestions and improvements a
 
 ---
 
-If you have any suggestion or want to contribute to the project you can reach me out at <mehmooulhaq1040@gmail.com>
+If you have any suggestion or want to contribute to the project you can reach me out at 
+<mehmooulhaq1040@gmail.com>
 
 **Made ❤️ by [Mehmood Ul Haq]**
