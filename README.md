@@ -125,6 +125,7 @@ In this case, BibTeX entries will not be fetched, and the formatted citations wi
 ```
 Artificial Intelligence for Smart Grids
 Machine Learning in Climate Forecasting
+Machine Learning in Solar Forecasting
 ```
 
 ---
