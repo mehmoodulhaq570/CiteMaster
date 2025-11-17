@@ -10,7 +10,6 @@ refgen/
 build
 .vscode
 dist
-cite_master.egg-info
 
 cite_master/__pycache__
 
