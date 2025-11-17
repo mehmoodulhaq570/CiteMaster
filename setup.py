@@ -1,12 +1,24 @@
 from setuptools import setup, find_packages
+import os
+import re
 
 # Read the README file for long description
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
+# Read version from __init__.py
+def get_version():
+    init_path = os.path.join(os.path.dirname(__file__), 'cite_master', '__init__.py')
+    with open(init_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+        version_match = re.search(r'^__version__\s*=\s*["\']([^"\']*)["\']', content, re.MULTILINE)
+        if version_match:
+            return version_match.group(1)
+        raise RuntimeError("Unable to find version string.")
+
 setup(
     name="cite_master",  # Name of the package
-    version="0.1.1",  # Version of the package
+    version=get_version(),  # Version read from __init__.py
     author="Mehmood Ul Haq",  # Your name as the author
     author_email="mehmooulhaq1040@gmail.com",  # Your email
     description="A tool to automatically generate formatted citations from paper titles",  # Short description
@@ -33,7 +45,7 @@ setup(
     ],
     entry_points={  # Entry points to create command-line tools
         'console_scripts': [
-            'cite-master=cite_master.main:main',  # Creates a CLI command 'cite-master'
+            'cite-master=cite_master.__main__:main',  # Creates a CLI command 'cite-master'
         ],
     },
     include_package_data=True,  # Include additional files specified in MANIFEST.in

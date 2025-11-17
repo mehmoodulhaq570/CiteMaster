@@ -19,3 +19,9 @@ soupsieve==2.6
 typing_extensions==4.13.0
 urllib3==1.26.16
 tqdm==4.66.5
+
+# Development and testing dependencies (optional)
+# Install with: pip install -r tests/requirements-test.txt
+# pytest>=7.4.0
+# pytest-cov>=4.1.0
+# pytest-mock>=3.11.0

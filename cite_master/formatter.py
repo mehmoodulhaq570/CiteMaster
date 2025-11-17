@@ -1,4 +1,7 @@
 import bibtexparser
+from .exceptions import CitationFormatError, setup_logging
+
+logger = setup_logging()
 
 def format_citation(bibtex, style="apa"):
     """Formats a BibTeX citation into APA, MLA, or IEEE style."""
@@ -45,7 +48,8 @@ def format_citation(bibtex, style="apa"):
 
         return f"{formatted_authors_str}, \"{title},\" *{journal}*, vol. {volume}, no. {issue}, {page_prefix} {pages}, {year}{doi_text}."
 
-    return "Invalid style specified."
+    logger.error(f"Invalid citation style requested: {style}")
+    raise CitationFormatError(style)
 
 
 # Example Usage

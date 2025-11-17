@@ -1,2 +1,2 @@
 [console_scripts]
-cite-master = cite_master.main:main
+cite-master = cite_master.__main__:main

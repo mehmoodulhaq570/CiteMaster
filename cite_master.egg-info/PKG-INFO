@@ -1,6 +1,6 @@
-Metadata-Version: 2.1
+Metadata-Version: 2.4
 Name: cite_master
-Version: 0.1.1
+Version: 0.1.2
 Summary: A tool to automatically generate formatted citations from paper titles
 Home-page: https://github.com/mehmoodulhaq570/CiteMaster
 Author: Mehmood Ul Haq
@@ -19,6 +19,18 @@ Requires-Dist: requests>=2.25.1
 Requires-Dist: tqdm>=4.59.0
 Requires-Dist: beautifulsoup4>=4.9.3
 Requires-Dist: pandas>=1.2.4
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
 
 [![Version](https://img.shields.io/badge/version-0.1.1-blue)](https://github.com/mehmoodulhaq570/cite_master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -147,6 +159,7 @@ In this case, BibTeX entries will not be fetched, and the formatted citations wi
 ```
 Artificial Intelligence for Smart Grids
 Machine Learning in Climate Forecasting
+Machine Learning in Solar Forecasting
 ```
 
 ---
@@ -191,3 +204,5 @@ If you have any suggestion or want to contribute to the project you can reach me
 <mehmooulhaq1040@gmail.com>
 
 **Made ❤️ by [Mehmood Ul Haq]**
+
+

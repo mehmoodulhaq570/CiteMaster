@@ -1,31 +1,69 @@
 import os
-import logging
 from tqdm import tqdm
 from .extract_doi import get_doi_from_title, process_file
 from .fetch_bibtex import fetch_bibtex_from_doi
 from .formatter import format_citation
+from .config import get_config
+from .exceptions import CiteMasterError, get_error_suggestion, setup_logging
+from .ui_utils import (
+    print_success,
+    print_error,
+    print_warning,
+    print_header,
+    print_welcome,
+    print_goodbye,
+    ProcessingStats,
+    get_file_conflict_name,
+    prompt_yes_no,
+    prompt_choice,
+)
 
 # Setup logging
-logging.basicConfig(filename="errors.log", level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s')
+config = get_config()
+logger = setup_logging(
+    config.get("log_filename", "errors.log"), verbose=config.get("verbose", False)
+)
 
 # Output directory
-os.makedirs("outputs", exist_ok=True)
+output_dir = config.get("output_dir", "outputs")
+os.makedirs(output_dir, exist_ok=True)
+
 
 def main():
-    print("\n *************📚 Welcome to CiteMaster: Paper Citation Formatter! *************\n")
+    print(
+        "\n *************📚 Welcome to CiteMaster: Paper Citation Formatter! *************\n"
+    )
     user_input = input("Enter a paper title or provide a file path (txt/csv): ").strip()
 
     citation_format = input("Enter citation format (apa, mla, ieee): ").strip().lower()
     while citation_format not in ["apa", "mla", "ieee"]:
-        citation_format = input("Invalid format. Please enter 'apa', 'mla', or 'ieee': ").strip().lower()
+        citation_format = (
+            input("Invalid format. Please enter 'apa', 'mla', or 'ieee': ")
+            .strip()
+            .lower()
+        )
 
-    include_bibtex = input("Do you want the BibTeX citation as well? (yes/no): ").strip().lower()
+    include_bibtex = (
+        input("Do you want the BibTeX citation as well? (yes/no): ").strip().lower()
+    )
 
     if user_input.endswith(".txt") or user_input.endswith(".csv"):
-        save_citations_to_file = input("Do you want to save formatted citations to outputs/citations_output.txt? (yes/no): ").strip().lower()
+        save_citations_to_file = (
+            input(
+                "Do you want to save formatted citations to outputs/citations_output.txt? (yes/no): "
+            )
+            .strip()
+            .lower()
+        )
         save_bibtex_to_file = "no"
         if include_bibtex == "yes":
-            save_bibtex_to_file = input("Do you want to save BibTeX entries to outputs/bibtex_output.txt? (yes/no): ").strip().lower()
+            save_bibtex_to_file = (
+                input(
+                    "Do you want to save BibTeX entries to outputs/bibtex_output.txt? (yes/no): "
+                )
+                .strip()
+                .lower()
+            )
 
         results = process_multiple_titles(user_input, citation_format, include_bibtex)
 
@@ -33,19 +71,25 @@ def main():
         all_formatted_citations = []
         seen_titles = set()
         use_progress = len(results) > 50
-        iterator = tqdm(results.items(), desc="Processing", unit="paper") if use_progress else results.items()
+        iterator = (
+            tqdm(results.items(), desc="Processing", unit="paper")
+            if use_progress
+            else results.items()
+        )
 
         for title, data in iterator:
             if title in seen_titles:
                 continue
             seen_titles.add(title)
 
-            print(f"\nTitle: {title}\nFormatted Citation ({citation_format.upper()}):\n{data['citation']}\n")
+            print(
+                f"\nTitle: {title}\nFormatted Citation ({citation_format.upper()}):\n{data['citation']}\n"
+            )
             all_formatted_citations.append(f"{title}\n{data['citation']}\n")
 
-            if include_bibtex == "yes" and data['bibtex']:
+            if include_bibtex == "yes" and data["bibtex"]:
                 print(f"BibTeX:\n{data['bibtex']}\n")
-                all_bibtex_entries.append(data['bibtex'])
+                all_bibtex_entries.append(data["bibtex"])
 
         # Handle file name conflicts for citations
         citations_filename = "outputs/citations_output.txt"
@@ -74,19 +118,30 @@ def main():
             with open(bibtex_filename, "w", encoding="utf-8") as f:
                 f.write("\n\n".join(all_bibtex_entries))
             print(f"✅ BibTeX entries saved to {bibtex_filename}")
-        
+
         print("\n ---------------Goodbye!-----------------")
 
     else:
-        formatted_citation, bibtex = process_single_title(user_input, citation_format, include_bibtex)
-        print(f"\nFormatted Citation ({citation_format.upper()}):\n{formatted_citation}\n")
+        formatted_citation, bibtex = process_single_title(
+            user_input, citation_format, include_bibtex
+        )
+        print(
+            f"\nFormatted Citation ({citation_format.upper()}):\n{formatted_citation}\n"
+        )
         if include_bibtex == "yes" and bibtex:
             print(f"BibTeX:\n{bibtex}\n")
-            if input("Do you want to save this BibTeX to outputs/bibtex_output.txt? (yes/no): ").strip().lower() == "yes":
+            if (
+                input(
+                    "Do you want to save this BibTeX to outputs/bibtex_output.txt? (yes/no): "
+                )
+                .strip()
+                .lower()
+                == "yes"
+            ):
                 with open("outputs/bibtex_output.txt", "w", encoding="utf-8") as f:
                     f.write(bibtex)
                 print("✅ BibTeX saved to outputs/bibtex_output.txt")
-        
+
         print("\n ---------------Goodbye!-----------------")
 
 
@@ -100,7 +155,7 @@ def process_single_title(title, citation_format="apa", include_bibtex="no"):
             return formatted_citation, bibtex if include_bibtex == "yes" else ""
         return "DOI not found.", ""
     except Exception as e:
-        logging.error(f"Error processing title: {title} — {e}")
+        logger.error(f"Error processing title: {title} — {e}")
         return "❌ Error occurred while processing title.", ""
 
 
@@ -119,17 +174,18 @@ def process_multiple_titles(file_path, citation_format="apa", include_bibtex="no
                     formatted_citation = format_citation(bibtex, citation_format)
                     results[title] = {
                         "citation": formatted_citation,
-                        "bibtex": bibtex if include_bibtex == "yes" else ""
+                        "bibtex": bibtex if include_bibtex == "yes" else "",
                     }
                 else:
                     results[title] = {"citation": "DOI not found.", "bibtex": ""}
             except Exception as e:
-                logging.error(f"Error processing title: {title} — {e}")
+                logger.error(f"Error processing title: {title} — {e}")
                 results[title] = {"citation": "❌ Error occurred", "bibtex": ""}
         return results
     except Exception as e:
-        logging.error(f"Error reading file: {file_path} — {e}")
+        logger.error(f"Error reading file: {file_path} — {e}")
         return {}
+
 
 if __name__ == "__main__":
     main()

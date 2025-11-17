@@ -1,3 +1,61 @@
 2025-04-10 15:37:56,287 - ERROR - Error reading file: C:\Users\mehmo\Downloads\cite_master\cite_master\Papers.txt — HTTPSConnectionPool(host='api.crossref.org', port=443): Max retries exceeded with url: /works?query.title=Emerging%20Supersolidity%20in%20Photonic-Crystal%20Polariton%20Condensates&rows=1 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001585EFFAA80>: Failed to resolve 'api.crossref.org' ([Errno 11001] getaddrinfo failed)"))
 2025-04-10 15:38:33,608 - ERROR - Error reading file: C:\Users\mehmo\Downloads\cite_master\cite_master\Papers.txt — HTTPSConnectionPool(host='api.crossref.org', port=443): Max retries exceeded with url: /works?query.title=Emerging%20Supersolidity%20in%20Photonic-Crystal%20Polariton%20Condensates&rows=1 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000026E165DE870>: Failed to resolve 'api.crossref.org' ([Errno 11001] getaddrinfo failed)"))
 2025-04-10 15:42:56,916 - ERROR - Error reading file: C:\Users\mehmo\Downloads\cite_master\cite_master\Papers.txt — HTTPSConnectionPool(host='api.crossref.org', port=443): Max retries exceeded with url: /works?query.title=Emerging%20Supersolidity%20in%20Photonic-Crystal%20Polariton%20Condensates&rows=1 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001ECB50FA900>: Failed to resolve 'api.crossref.org' ([Errno 11001] getaddrinfo failed)"))
+2025-11-17 14:30:56,746 - cite_master - INFO - DOI found for 'Deep Learning for Solar Energy Forecasting': 10.1016/j.renene.2023.001
+2025-11-17 14:30:56,757 - cite_master - WARNING - DOI not found for title: 'Non-existent Paper Title'
+2025-11-17 14:30:56,764 - cite_master - WARNING - Attempt 1/3 failed for get_doi_from_title: API request to CrossRef failed (Status code: 500). Retrying in 1.0s...
+2025-11-17 14:30:57,765 - cite_master - WARNING - Attempt 2/3 failed for get_doi_from_title: API request to CrossRef failed (Status code: 500). Retrying in 2.0s...
+2025-11-17 14:30:59,766 - cite_master - ERROR - Function get_doi_from_title failed after 3 attempts: API request to CrossRef failed (Status code: 500)
+2025-11-17 14:31:00,333 - cite_master - INFO - DOI found for 'AI & ML: A Review of Deep Learning (2023)': 10.1016/j.renene.2023.001
+2025-11-17 14:31:00,357 - cite_master - INFO - Processing 3 titles from C:\Users\mehmo\AppData\Local\Temp\pytest-of-Mehmood\pytest-0\test_process_txt_file0\test_papers.txt
+2025-11-17 14:31:00,370 - cite_master - INFO - Processing 3 titles from C:\Users\mehmo\AppData\Local\Temp\pytest-of-Mehmood\pytest-0\test_process_csv_file0\test_papers.csv
+2025-11-17 14:31:00,408 - cite_master - INFO - Processing 0 titles from C:\Users\mehmo\AppData\Local\Temp\pytest-of-Mehmood\pytest-0\test_empty_txt_file0\empty.txt
+2025-11-17 14:31:00,417 - cite_master - INFO - Processing 3 titles from C:\Users\mehmo\AppData\Local\Temp\pytest-of-Mehmood\pytest-0\test_txt_file_with_blank_lines0\with_blanks.txt
+2025-11-17 14:31:00,423 - cite_master - INFO - BibTeX fetched successfully for DOI: 10.1016/j.renene.2023.001
+2025-11-17 14:31:00,428 - cite_master - WARNING - BibTeX not found for DOI: 10.9999/invalid.doi
+2025-11-17 14:31:00,460 - cite_master - WARNING - Cannot fetch BibTeX: Invalid DOI ''
+2025-11-17 14:31:00,464 - cite_master - INFO - BibTeX fetched successfully for DOI: 10.1016/j.test.2023.001
+2025-11-17 14:31:00,469 - cite_master - INFO - BibTeX fetched successfully for DOI: 10.1016/j.test.2023.001
+2025-11-17 14:31:00,593 - cite_master - ERROR - Invalid citation style requested: invalid_style
+2025-11-17 14:35:35,031 - cite_master - INFO - DOI found for 'Deep Learning for Solar Energy Forecasting': 10.1016/j.renene.2023.001
+2025-11-17 14:35:35,037 - cite_master - WARNING - DOI not found for title: 'Non-existent Paper Title'
+2025-11-17 14:35:35,042 - cite_master - WARNING - Attempt 1/3 failed for get_doi_from_title: API request to CrossRef failed (Status code: 500). Retrying in 1.0s...
+2025-11-17 14:35:36,043 - cite_master - WARNING - Attempt 2/3 failed for get_doi_from_title: API request to CrossRef failed (Status code: 500). Retrying in 2.0s...
+2025-11-17 14:35:38,054 - cite_master - ERROR - Function get_doi_from_title failed after 3 attempts: API request to CrossRef failed (Status code: 500)
+2025-11-17 14:35:38,074 - cite_master - INFO - DOI found for 'AI & ML: A Review of Deep Learning (2023)': 10.1016/j.renene.2023.001
+2025-11-17 14:35:38,124 - cite_master - INFO - Processing 3 titles from C:\Users\mehmo\AppData\Local\Temp\pytest-of-Mehmood\pytest-1\test_process_txt_file0\test_papers.txt
+2025-11-17 14:35:38,155 - cite_master - INFO - Processing 3 titles from C:\Users\mehmo\AppData\Local\Temp\pytest-of-Mehmood\pytest-1\test_process_csv_file0\test_papers.csv
+2025-11-17 14:35:38,208 - cite_master - INFO - Processing 0 titles from C:\Users\mehmo\AppData\Local\Temp\pytest-of-Mehmood\pytest-1\test_empty_txt_file0\empty.txt
+2025-11-17 14:35:38,232 - cite_master - INFO - Processing 3 titles from C:\Users\mehmo\AppData\Local\Temp\pytest-of-Mehmood\pytest-1\test_txt_file_with_blank_lines0\with_blanks.txt
+2025-11-17 14:35:38,249 - cite_master - INFO - BibTeX fetched successfully for DOI: 10.1016/j.renene.2023.001
+2025-11-17 14:35:38,260 - cite_master - WARNING - BibTeX not found for DOI: 10.9999/invalid.doi
+2025-11-17 14:35:38,285 - cite_master - WARNING - Cannot fetch BibTeX: Invalid DOI ''
+2025-11-17 14:35:38,299 - cite_master - INFO - BibTeX fetched successfully for DOI: 10.1016/j.test.2023.001
+2025-11-17 14:35:38,311 - cite_master - INFO - BibTeX fetched successfully for DOI: 10.1016/j.test.2023.001
+2025-11-17 14:35:38,542 - cite_master - ERROR - Invalid citation style requested: invalid_style
+2025-11-17 14:35:39,037 - cite_master - ERROR - Error processing title: Test Title â€” API Error
+2025-11-17 14:35:39,093 - cite_master - ERROR - Error reading file: invalid_file.txt â€” File read error
+2025-11-17 14:36:00,860 - cite_master - INFO - DOI found for 'Deep Learning for Solar Energy Forecasting': 10.1016/j.renene.2023.001
+2025-11-17 14:36:00,879 - cite_master - WARNING - DOI not found for title: 'Non-existent Paper Title'
+2025-11-17 14:36:00,890 - cite_master - WARNING - Attempt 1/3 failed for get_doi_from_title: API request to CrossRef failed (Status code: 500). Retrying in 1.0s...
+2025-11-17 14:36:01,891 - cite_master - WARNING - Attempt 2/3 failed for get_doi_from_title: API request to CrossRef failed (Status code: 500). Retrying in 2.0s...
+2025-11-17 14:36:03,892 - cite_master - ERROR - Function get_doi_from_title failed after 3 attempts: API request to CrossRef failed (Status code: 500)
+2025-11-17 14:36:03,901 - cite_master - INFO - DOI found for 'AI & ML: A Review of Deep Learning (2023)': 10.1016/j.renene.2023.001
+2025-11-17 14:36:03,924 - cite_master - INFO - Processing 3 titles from C:\Users\mehmo\AppData\Local\Temp\pytest-of-Mehmood\pytest-2\test_process_txt_file0\test_papers.txt
+2025-11-17 14:36:03,939 - cite_master - INFO - Processing 3 titles from C:\Users\mehmo\AppData\Local\Temp\pytest-of-Mehmood\pytest-2\test_process_csv_file0\test_papers.csv
+2025-11-17 14:36:03,967 - cite_master - INFO - Processing 0 titles from C:\Users\mehmo\AppData\Local\Temp\pytest-of-Mehmood\pytest-2\test_empty_txt_file0\empty.txt
+2025-11-17 14:36:03,982 - cite_master - INFO - Processing 3 titles from C:\Users\mehmo\AppData\Local\Temp\pytest-of-Mehmood\pytest-2\test_txt_file_with_blank_lines0\with_blanks.txt
+2025-11-17 14:36:03,991 - cite_master - INFO - BibTeX fetched successfully for DOI: 10.1016/j.renene.2023.001
+2025-11-17 14:36:03,998 - cite_master - WARNING - BibTeX not found for DOI: 10.9999/invalid.doi
+2025-11-17 14:36:04,011 - cite_master - WARNING - Cannot fetch BibTeX: Invalid DOI ''
+2025-11-17 14:36:04,018 - cite_master - INFO - BibTeX fetched successfully for DOI: 10.1016/j.test.2023.001
+2025-11-17 14:36:04,024 - cite_master - INFO - BibTeX fetched successfully for DOI: 10.1016/j.test.2023.001
+2025-11-17 14:36:04,200 - cite_master - ERROR - Invalid citation style requested: invalid_style
+2025-11-17 14:36:04,486 - cite_master - ERROR - Error processing title: Test Title â€” API Error
+2025-11-17 14:36:04,520 - cite_master - ERROR - Error reading file: invalid_file.txt â€” File read error
+2025-11-17 14:37:45,269 - cite_master - INFO - DOI found for 'Deep Learning': 10.4314/sajhe.v17i1.25201
+2025-11-17 14:37:46,538 - cite_master - INFO - BibTeX fetched successfully for DOI: 10.1038/nature12373
+2025-11-17 14:37:46,621 - cite_master - ERROR - Invalid citation style requested: invalid
+2025-11-17 14:37:59,627 - cite_master - INFO - DOI found for 'Deep Learning': 10.4314/sajhe.v17i1.25201
+2025-11-17 14:38:00,718 - cite_master - INFO - BibTeX fetched successfully for DOI: 10.1038/nature12373
+2025-11-17 14:38:00,901 - cite_master - ERROR - Invalid citation style requested: invalid
