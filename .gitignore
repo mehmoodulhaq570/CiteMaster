@@ -7,12 +7,12 @@ out
 gen
 refgen/
 
-build/
-.vscode/
-dist/
-cite_master.egg-info/
+build
+.vscode
+dist
+cite_master.egg-info
 
-__pycache__/
+cite_master/__pycache__
 
 readme_docs
 
