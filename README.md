@@ -1,9 +1,8 @@
-[![Version](https://img.shields.io/badge/version-0.1.1-blue)](https://github.com/mehmoodulhaq570/cite_master)
+[![Version](https://img.shields.io/badge/version-0.1.2-blue)](https://github.com/mehmoodulhaq570/cite_master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Issues](https://img.shields.io/github/issues/mehmoodulhaq570/doi_hunter)](https://github.com/mehmoodulhaq570/cite_master/issues)
 [![Size](https://img.shields.io/github/repo-size/mehmoodulhaq570/doi_hunter.svg)](https://github.com/mehmooulhaq570/cite_master)
 [![Downloads](https://img.shields.io/github/downloads/mehmoodulhaq570/doi_hunter/total.svg)](https://github.com/mehmoodulhaq570/cite_master/releases)
-
 
 # CiteMaster
 
@@ -17,9 +16,14 @@
 - Fetches corresponding BibTeX data
 - Formats citations in **APA**, **MLA**, or **IEEE**
 - Supports batch citation generation from `.txt` or `.csv` files
-- Saves formatted citations and BibTeX entries to text files (`citations_output.txt` and `bibtex_output.txt`).
-- Progress tracking for batch processing of large lists of papers.
-- Error handling with detailed logs stored in `errors.log`.
+- Saves formatted citations and BibTeX entries to text files
+- **NEW:** Comprehensive test suite with 39+ unit tests
+- **NEW:** Configurable settings via JSON config file
+- **NEW:** Advanced error handling with automatic retries
+- **NEW:** Custom exceptions with helpful error messages
+- **NEW:** Color-coded output and progress statistics
+- Progress tracking for batch processing of large lists of papers
+- Detailed logging with configurable verbosity
 
 ---
 
@@ -28,7 +32,7 @@
 Clone and install CiteMaster locally:
 
 ```bash
-git clone https://github.com/yourusername/CiteMaster.git
+git clone https://github.com/mehmoodulhaq570/CiteMaster.git
 cd CiteMaster
 pip install requirements.txt
 ```
@@ -111,13 +115,14 @@ Do you want the BibTeX citation as well? (yes/no): no
 Do you want to save formatted citations to outputs/citations_output.txt? (yes/no): yes
 
 ```
+
 In this case, BibTeX entries will not be fetched, and the formatted citations will be saved to `outputs/citations_output.txt`.
 
 ---
 
 ## Supported Input Formats
 
-- **.txt file**: One paper title per line  
+- **.txt file**: One paper title per line
 - **.csv file**: First column should contain the titles
 
 **Example `paper_titles.txt`:**
@@ -138,12 +143,60 @@ Machine Learning in Solar Forecasting
 
 ---
 
+## Configuration
+
+CiteMaster now supports custom configuration! Create a `config.json` file:
+
+```bash
+python -c "from cite_master.config import Config; Config.create_default_config_file()"
+```
+
+Customize settings like:
+
+- API timeouts and retry attempts
+- Output directories
+- Log file locations
+- Color output preferences
+- And more!
+
+---
+
+## Testing
+
+CiteMaster includes a comprehensive test suite:
+
+```bash
+# Install test dependencies
+pip install -r tests/requirements-test.txt
+
+# Run tests
+pytest tests/ -v
+
+# Run with coverage
+pytest tests/ --cov=cite_master --cov-report=html
+```
+
+---
+
+## What's New in v0.1.2
+
+🎉 **Major improvements:**
+
+1. **Comprehensive Testing** - 39+ unit tests with mocking
+2. **Configuration System** - Flexible JSON-based configuration
+3. **Advanced Error Handling** - Retry logic, custom exceptions, helpful messages
+4. **UI Improvements** - Color-coded output, processing statistics
+5. **Better Logging** - Structured logging with configurable verbosity
+
+See [CHANGELOG.md](CHANGELOG.md) for complete details.
+
+---
+
 ## Uninstalling
 
 ```bash
-pip uninstall citemaster
+pip uninstall cite-master
 ```
-
 ---
 
 ## License
@@ -166,9 +219,7 @@ Feel free to open issues or submit pull requests. Suggestions and improvements a
 
 ---
 
-If you have any suggestion or want to contribute to the project you can reach me out at 
+If you have any suggestion or want to contribute to the project you can reach me out at
 <mehmooulhaq1040@gmail.com>
 
 **Made ❤️ by [Mehmood Ul Haq]**
-
-

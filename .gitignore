@@ -14,6 +14,8 @@ cite_master.egg-info/
 
 __pycache__/
 
+readme_docs
+
 # Python
 *.py[cod]
 *$py.class
